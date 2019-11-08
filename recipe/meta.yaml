@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "1.43.4" %}
+{% set version = "1.43.4.post1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: 72ae19ac61932bb91319af100f5750016eadea414d9091d44d27d49b934e5fd7
+  sha256: 3cd760f84f027422c8190f8993fbd7d333c152917f1355e96ce14539cdf0d2c4
   patches:
     - remove_docker_compose_fromsetup.patch # build will not work unless docker-compose is removed from setup.py, it will produce erroneous ContextualVersionConflicts
 
