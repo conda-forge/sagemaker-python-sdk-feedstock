@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "1.43.5" %}
+{% set version = "1.44.2" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,9 +7,7 @@ package:
 
 source:
   url: "https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: 0e1a6c1a8f65a59d2ed97c66e13a2323872fb8364265c29e2fa5630c5798e782
-  patches:
-    - remove_docker_compose_fromsetup.patch # build will not work unless docker-compose is removed from setup.py, it will produce erroneous ContextualVersionConflicts
+  sha256: e101b64ced22605ec322fa5f74621e54cefa4e3573e5ea1a53dff8da28eb7ecd
 
 build:
   number: 0
@@ -25,15 +23,14 @@ requirements:
   run:
     - boto3 >=1.9.213
     - docker-compose >=1.23.0
-    - fabric >=2.0
     - numpy >=1.9.0
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
+    - pyyaml >=3.10,<5
     - python
     - requests >=2.20.0,<2.21
     - scipy >=0.19.0
     - urllib3 >=1.21,<1.25
-    - enum34 >=1.1.6  # [py<34]
 
 test:
   imports:
