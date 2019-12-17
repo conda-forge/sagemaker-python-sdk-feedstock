@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "1.44.4" %}
+{% set version = "1.45.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,9 @@ package:
 
 source:
   url: "https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: 0c63c348d59790101515251a2afbd2d5564cd6d521fc6cf2bf8972f51748992f
+  sha256: 770a8b4d42b94d2e373937e3efc953dc545011f1bba86d8aeec508207f61f291
+  patches:
+    smdebug_setuppy.patch
 
 build:
   number: 0
@@ -21,7 +23,7 @@ requirements:
     - pip
     - python
   run:
-    - boto3 >=1.9.213
+    - boto3 >=1.10.32
     - docker-compose >=1.23.0
     - numpy >=1.9.0
     - protobuf >=3.1
@@ -31,6 +33,7 @@ requirements:
     - requests >=2.20.0,<2.21
     - scipy >=0.19.0
     - urllib3 >=1.21,<1.25
+    - smdebug-rulesconfig >=0.1.2
 
 test:
   imports:
