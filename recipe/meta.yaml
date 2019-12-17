@@ -8,6 +8,8 @@ package:
 source:
   url: "https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz"
   sha256: 770a8b4d42b94d2e373937e3efc953dc545011f1bba86d8aeec508207f61f291
+  patches:
+    smdebug_setuppy.patch
 
 build:
   number: 0
