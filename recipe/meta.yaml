@@ -12,7 +12,7 @@ source:
     smdebug_setuppy.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - sagemaker=sagemaker.cli.main:main
   script: "{{ PYTHON }} -m pip install . -vv"
