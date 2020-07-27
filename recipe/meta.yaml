@@ -8,8 +8,6 @@ package:
 source:
   url: "https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz"
   sha256: 2afd9e4bfc0aae85d2abe9a6442c2234654789a9a8a897c189c2827f697e43ea
-  patches:
-    - remove_docker_compose_fromsetup.patch # build will not work unless docker-compose is removed from setup.py, it will produce erroneous ContextualVersionConflicts
 
 build:
   number: 0
@@ -23,16 +21,15 @@ requirements:
     - pip
     - python
   run:
-    - boto3 >=1.9.213
-    - docker-compose >=1.23.0
-    - fabric >=2.0
+    - boto3 >=1.14.12
+    - importlib-metadata >=1.4.0
     - numpy >=1.9.0
+    - packaging >=20.0
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
     - python
-    - requests >=2.20.0,<2.21
     - scipy >=0.19.0
-    - urllib3 >=1.21,<1.25
+    - smdebug-rulesconfig
 
 test:
   imports:
