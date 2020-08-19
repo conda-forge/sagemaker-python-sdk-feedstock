@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   entry_points:
-    - sagemaker=sagemaker.cli.main:main
+    - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
@@ -22,15 +22,14 @@ requirements:
     - python
   run:
     - boto3 >=1.14.12
+    - google-pasta
     - importlib-metadata >=1.4.0
     - numpy >=1.9.0
     - packaging >=20.0
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
-    - pyyaml >=3.10,<5
     - python
-    - scipy >=0.19.0
-    - smdebug-rulesconfig
+    - smdebug-rulesconfig ==0.1.4
 
 test:
   imports:
@@ -45,12 +44,13 @@ test:
     - sagemaker.sklearn
     - sagemaker.sparkml
     - sagemaker.tensorflow
-    - sagemaker.tensorflow.tensorflow_serving
-    - sagemaker.tensorflow.tensorflow_serving.apis
     - sagemaker.workflow
     - sagemaker.xgboost
   commands:
-    - sagemaker --help
+    - pip check
+    - sagemaker-upgrade-v2 --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
