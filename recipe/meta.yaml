@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: ad44c55b54fdad61d7af29f4e1c525ac207c72be872d7d58425b8f6ae63a30b2
+  sha256: 1181575349bda584e7494074bd7f82a07e1120c5222f49d34d86d5119e795639
 
 build:
   number: 0
@@ -29,7 +29,7 @@ requirements:
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
     - python
-    - smdebug-rulesconfig ==0.1.4
+    - smdebug-rulesconfig ==0.1.5
 
 test:
   imports:
