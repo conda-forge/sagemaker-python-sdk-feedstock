@@ -1,20 +1,20 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "1.71.0" %}
+{% set version = "2.4.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: 2afd9e4bfc0aae85d2abe9a6442c2234654789a9a8a897c189c2827f697e43ea
+  url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 1181575349bda584e7494074bd7f82a07e1120c5222f49d34d86d5119e795639
 
 build:
   number: 0
   entry_points:
-    - sagemaker=sagemaker.cli.main:main
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [win]
+    - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [win]
 
 requirements:
   host:
@@ -22,15 +22,14 @@ requirements:
     - python
   run:
     - boto3 >=1.14.12
+    - google-pasta
     - importlib-metadata >=1.4.0
     - numpy >=1.9.0
     - packaging >=20.0
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
-    - pyyaml >=3.10,<5
     - python
-    - scipy >=0.19.0
-    - smdebug-rulesconfig
+    - smdebug-rulesconfig ==0.1.5
 
 test:
   imports:
@@ -45,19 +44,20 @@ test:
     - sagemaker.sklearn
     - sagemaker.sparkml
     - sagemaker.tensorflow
-    - sagemaker.tensorflow.tensorflow_serving
-    - sagemaker.tensorflow.tensorflow_serving.apis
     - sagemaker.workflow
     - sagemaker.xgboost
   commands:
-    - sagemaker --help
+    - pip check
+    - sagemaker-upgrade-v2 --help
+  requires:
+    - pip
 
 about:
-  home: "https://github.com/aws/sagemaker-python-sdk/"
+  home: https://github.com/aws/sagemaker-python-sdk/
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE.txt
-  summary: "Open source library for training and deploying models on Amazon SageMaker."
+  summary: Open source library for training and deploying models on Amazon SageMaker.
   doc_url: https://sagemaker.readthedocs.io/en/stable/
   dev_url: https://github.com/aws/sagemaker-python-sdk/
 
