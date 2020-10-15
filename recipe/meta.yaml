@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.15.0" %}
+{% set version = "2.15.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 29f50776c74605e63e2870c16c5979b6adfdcc6a5221eb45ed119715c95fb019
+  sha256: 7feaafbf7b0ac24e078012f07404471df66b32c9a567292fa895e565318fb83a
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   script: {{ PYTHON }} -m pip install . -vv
