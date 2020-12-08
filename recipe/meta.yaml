@@ -20,7 +20,6 @@ requirements:
   host:
     - pip
     - python
-    - attr
   run:
     - boto3 >=1.14.12
     - google-pasta
@@ -31,7 +30,7 @@ requirements:
     - protobuf3-to-dict >=0.1.5
     - python
     - smdebug-rulesconfig ==0.1.5
-    - attr
+    - attrs
 
 test:
   imports:
