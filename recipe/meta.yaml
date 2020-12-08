@@ -20,6 +20,7 @@ requirements:
   host:
     - pip
     - python
+    - attr
   run:
     - boto3 >=1.14.12
     - google-pasta
