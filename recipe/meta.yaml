@@ -52,6 +52,7 @@ test:
     - sagemaker-upgrade-v2 --help
   requires:
     - pip
+    - smdebug-rulesconfig >=1.0.0
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
