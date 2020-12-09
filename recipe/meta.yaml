@@ -20,7 +20,6 @@ requirements:
   host:
     - pip
     - python
-    - smdebug-rulesconfig >=1.0.eem
   run:
     - boto3 >=1.16.32
     - google-pasta
