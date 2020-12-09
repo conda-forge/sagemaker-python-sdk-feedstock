@@ -20,7 +20,7 @@ requirements:
   host:
     - pip
     - python
-    - smdebug-rulesconfig >=1.0.0
+    - smdebug-rulesconfig >=1.0.eem
   run:
     - boto3 >=1.16.32
     - google-pasta
@@ -37,23 +37,29 @@ test:
   imports:
     - sagemaker
     - sagemaker.amazon
+    - sagemaker.apiutils
+    - sagemaker.automl
     - sagemaker.chainer
     - sagemaker.cli
+    - sagemaker.cli.compatibility
+    - sagemaker.cli.compatibility.v2
+    - sagemaker.cli.compatibility.v2.modifiers
+    - sagemaker.debugger
+    - sagemaker.feature_store
+    - sagemaker.lineage
     - sagemaker.local
+    - sagemaker.model_monitor
     - sagemaker.mxnet
     - sagemaker.pytorch
     - sagemaker.rl
     - sagemaker.sklearn
+    - sagemaker.spark
     - sagemaker.sparkml
     - sagemaker.tensorflow
     - sagemaker.workflow
     - sagemaker.xgboost
   commands:
-    - pip check
     - sagemaker-upgrade-v2 --help
-  requires:
-    - pip
-    - smdebug-rulesconfig >=1.0.0
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
