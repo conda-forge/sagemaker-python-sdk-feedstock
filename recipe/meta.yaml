@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.18.0" %}
+{% set version = "2.19.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: f43e82367429b784bb36fdd3d5353666520987cfcbf319a306bea2e7bea248cd
+  sha256: 7da1cb68a83e62179c02f468c890859c1bc2746a9d4a077d0ad5cb545111518c
 
 build:
   number: 0
@@ -21,7 +21,7 @@ requirements:
     - pip
     - python
   run:
-    - boto3 >=1.14.12
+    - boto3 >=1.16.32
     - google-pasta
     - importlib-metadata >=1.4.0
     - numpy >=1.9.0
@@ -29,29 +29,36 @@ requirements:
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
     - python
-    - smdebug-rulesconfig ==0.1.5
+    - smdebug-rulesconfig >=1.0.0
     - attrs
 
 test:
   imports:
     - sagemaker
     - sagemaker.amazon
+    - sagemaker.apiutils
+    - sagemaker.automl
     - sagemaker.chainer
     - sagemaker.cli
+    - sagemaker.cli.compatibility
+    - sagemaker.cli.compatibility.v2
+    - sagemaker.cli.compatibility.v2.modifiers
+    - sagemaker.debugger
+    - sagemaker.feature_store
+    - sagemaker.lineage
     - sagemaker.local
+    - sagemaker.model_monitor
     - sagemaker.mxnet
     - sagemaker.pytorch
     - sagemaker.rl
     - sagemaker.sklearn
+    - sagemaker.spark
     - sagemaker.sparkml
     - sagemaker.tensorflow
     - sagemaker.workflow
     - sagemaker.xgboost
   commands:
-    - pip check
     - sagemaker-upgrade-v2 --help
-  requires:
-    - pip
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
