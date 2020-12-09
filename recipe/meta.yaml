@@ -31,6 +31,7 @@ requirements:
     - python
     - smdebug-rulesconfig ==0.1.5
     - attrs
+    - pandas
 
 test:
   imports:
