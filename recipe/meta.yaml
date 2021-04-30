@@ -10,7 +10,7 @@ source:
   sha256: ffe9d7abbef68fa62dbc9d88ae7748cce44aface93c448aa567cee704e991ab6
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   script: {{ PYTHON }} -m pip install . -vv
@@ -71,6 +71,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - mxr-conda
     - rluria14
     - benhuff
     - oblute
