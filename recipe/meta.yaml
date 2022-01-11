@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: ac9347fcc310f76ab887fdb3da2186ae381390bc60514de22e2fa2f73bda305d
+  sha256: 055846a6673dff4b2ea0711297d3c1835b40067b2df734ce07d6a5191e7415e5
 
 build:
   number: 0
