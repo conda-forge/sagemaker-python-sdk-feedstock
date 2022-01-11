@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.59.4" %}
+{% set version = "2.72.3" %}
 
 package:
   name: {{ name|lower }}
@@ -26,6 +26,7 @@ requirements:
     - importlib-metadata >=1.4.0
     - numpy >=1.9.0
     - packaging >=20.0
+    - pathos
     - protobuf >=3.1
     - protobuf3-to-dict >=0.1.5
     - python
