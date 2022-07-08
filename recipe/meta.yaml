@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.98.0" %}
+{% set version = "2.99.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 05c636ebcda068c78c1715e1e3ca008e984e9fd6129f6d4d7b1848de3c3fbde9
+  sha256: 8b48cf7ea42a3cc91467111da978417c5e67bd1fd10a3bcbdb7cf5c61226eb74
 
 build:
   number: 0
