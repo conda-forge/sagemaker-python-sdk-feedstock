@@ -10,7 +10,7 @@ source:
   sha256: b336fa100ecf347dd4c6ea582fb7fc7debfef6014188dc3079f1a1e06a04a7dc
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   script: {{ PYTHON }} -m pip install . -vv
