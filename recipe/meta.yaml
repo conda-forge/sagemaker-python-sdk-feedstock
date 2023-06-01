@@ -1,39 +1,44 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.109.0" %}
+{% set version = "2.160.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/aws/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 2603a45448ddaba9235e7961b6d5dbdbd49dfa082511fc9f3abea318e39b5e20
+  url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
+  sha256: 16f762a6ec8b5ee700968841f1e36398e398737ad80c6395e95985c6096f6f8a
 
 build:
-  number: 1
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win]
+  number: 0
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
+    - python >=3.6
     - pip
-    - python
   run:
-    - boto3 >=1.16.32
+    - python >=3.6
+    - attrs >=23.1.0,<24
+    - boto3 >=1.26.131,<2.0
+    - cloudpickle ==2.2.1
     - google-pasta
-    - importlib-metadata >=1.4.0
-    - numpy >=1.9.0
+    - numpy >=1.9.0,<2.0
+    - protobuf >=3.1,<4.0
+    - protobuf3-to-dict >=0.1.5,<1.0
+    - smdebug-rulesconfig ==1.0.1
+    - importlib-metadata >=1.4.0,<5.0
     - packaging >=20.0
-    - protobuf >=3.1
-    - protobuf3-to-dict >=0.1.5
-    - python
-    - smdebug-rulesconfig >=1.0.0
-    - attrs
+    - pandas
+    - pathos
+    - schema
+    - pyyaml ==6.0
+    - jsonschema
+    - platformdirs
+    - tblib ==1.7.0
 
 test:
   imports:
@@ -61,7 +66,10 @@ test:
     - sagemaker.workflow
     - sagemaker.xgboost
   commands:
+    - pip check
     - sagemaker-upgrade-v2 --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
