@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.172.0" %}
+{% set version = "2.172.1" %}
 
 package:
   name: {{ name|lower }}
