@@ -82,6 +82,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - claytonparnell
     - mxr-conda
     - rluria14
     - benhuff
