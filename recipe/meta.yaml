@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.173.0" %}
+{% set version = "2.174.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 30aa67a92dd2c2cf5d3d31f3d10f056198e2345c9f1c7f5a94e039ed0243a914
+  sha256: 8c86301e08d72d11a778a0ac72d16e1fb66d9e0c115913f72541d1838156217e
 
 build:
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
