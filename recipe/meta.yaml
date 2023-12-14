@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.198.0" %}
+{% set version = "2.200.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 6798d51a32e583c6d29355d947423b53e0d10271ae36bce609c8dd5ddced3e7b
+  sha256: 2fdc7495ad00a0f1c04b8373615026d37869ade20735d4b42c05bb188bf4fc4f
 
 build:
   entry_points:
