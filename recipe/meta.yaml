@@ -81,6 +81,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - jgoyani1
     - mufaddal-rohawala
     - claytonparnell
     - mxr-conda
