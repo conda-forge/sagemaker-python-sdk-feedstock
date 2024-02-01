@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.206.0" %}
+{% set version = "2.198.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 1b26c89e4da03112fe4ee44d8a795cfb31be99f6be937f8e552db92d986467ed
+  sha256: 3e95c8fd6c184895a61e6f432e0ee0e8ea9d6cf14c0080db5f36703eb0699153
 
 build:
   entry_points:
@@ -21,9 +21,9 @@ requirements:
     - python >=3.8
     - pip
   run:
-    - python >=3.8,<3.11
+    - python >=3.8
     - attrs >=23.1.0,<24
-    - boto3 >=1.33.3,<2.0
+    - boto3 >=1.29.6,<2.0
     - cloudpickle ==2.2.1
     - google-pasta
     - numpy >=1.9.0,<2.0
@@ -37,12 +37,7 @@ requirements:
     - pyyaml ~=6.0
     - jsonschema
     - platformdirs
-    - tblib >=1.7.0,<3
-    - urllib3 <1.27
-    - requests
-    - docker-py
-    - tqdm
-    - psutil
+    - tblib ==1.7.0
 
 test:
   imports:
