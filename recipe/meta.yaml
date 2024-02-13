@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.198.1" %}
+{% set version = "2.207.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 3e95c8fd6c184895a61e6f432e0ee0e8ea9d6cf14c0080db5f36703eb0699153
+  sha256: 689e1a78de0337e9c97fda12265fff5bb56c8f5cba2430333aadeaf8f7816705
 
 build:
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -37,7 +37,12 @@ requirements:
     - pyyaml ~=6.0
     - jsonschema
     - platformdirs
-    - tblib ==1.7.0
+    - tblib >=1.7.0,<3
+    - urllib3 <1.27
+    - requests
+    - docker-py
+    - tqdm
+    - psutil
 
 test:
   imports:
