@@ -150,6 +150,7 @@ Feedstock Maintainers
 * [@benhuff](https://github.com/benhuff/)
 * [@claytonparnell](https://github.com/claytonparnell/)
 * [@jgoyani1](https://github.com/jgoyani1/)
+* [@knikure](https://github.com/knikure/)
 * [@mufaddal-rohawala](https://github.com/mufaddal-rohawala/)
 * [@mxr-conda](https://github.com/mxr-conda/)
 * [@oblute](https://github.com/oblute/)
