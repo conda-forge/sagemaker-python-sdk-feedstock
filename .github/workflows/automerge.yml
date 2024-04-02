@@ -21,9 +21,9 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          audience: sts.amazonaws.com
+          audience: sts.us-east-1.amazonaws.com
           role-to-assume: arn:aws:iam::312598714048:role/my-github-actions-role
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: us-east-1
           role-skip-session-tagging: true
       - name: send email when merge fail
         if: success()
