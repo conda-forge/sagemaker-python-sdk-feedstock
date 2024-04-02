@@ -25,7 +25,7 @@ jobs:
           role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           aws-region: us-east-1
           role-skip-session-tagging: true
-      - name: send email when merge fail
+      - name: send email when merge fail(test)
         if: success()
         uses: dsfx3d/action-aws-ses@v1
         with:
