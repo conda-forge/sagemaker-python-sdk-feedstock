@@ -1,8 +1,5 @@
 on:
-  status: {}
-  check_suite:
-    types:
-      - completed
+  workflow_dispatch
 permissions:
   id-token: write
 jobs:
@@ -12,12 +9,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: automerge-action
-        id: automerge-action
-        uses: conda-forge/automerge-action@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          rerendering_github_token: ${{ secrets.RERENDERING_GITHUB_TOKEN }}
+      # - name: automerge-action
+      #   id: automerge-action
+      #   uses: conda-forge/automerge-action@main
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     rerendering_github_token: ${{ secrets.RERENDERING_GITHUB_TOKEN }}
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
