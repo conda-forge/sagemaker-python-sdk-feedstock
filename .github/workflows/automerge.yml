@@ -3,7 +3,8 @@ on:
   check_suite:
     types:
       - completed
-
+permissions:
+  id-token: write
 jobs:
   automerge-action:
     runs-on: ubuntu-latest
@@ -17,3 +18,22 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           rerendering_github_token: ${{ secrets.RERENDERING_GITHUB_TOKEN }}
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          audience: sts.amazonaws.com
+          role-to-assume: arn:aws:iam::312598714048:role/my-github-actions-role
+          aws-region: ${{ env.AWS_REGION }}
+          role-skip-session-tagging: true
+      - name: send email when merge fail
+        if: success()
+        uses: dsfx3d/action-aws-ses@v1
+        with:
+          # email subject
+          subject: 'sagemaker-python-sdk-feedstock merge fail notification'
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: 'liujiaor@amazon.com'
+          # from email name
+          from: 'notifications@github.com'
