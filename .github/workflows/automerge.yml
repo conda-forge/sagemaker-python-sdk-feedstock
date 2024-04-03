@@ -20,7 +20,7 @@ jobs:
       - name: get caller identity  
         run: |
             aws sts get-caller-identity
-            aws iam update-access-key --user-name Testingliujiaor
+            aws iam update-access-key --user-name Testingliujiaor --access-key-id AKIAURSCV23ACAXAZSVS
             aws iam list-access-keys --user-name Testingliujiaor
       - name: send email when merge fail
         if: success()
