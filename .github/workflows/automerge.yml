@@ -20,8 +20,10 @@ jobs:
       - name: get caller identity  
         run: |
             aws sts get-caller-identity
-            aws iam update-access-key --user-name Testingliujiaor --access-key-id AKIAURSCV23ACAXAZSVS
-            aws iam list-access-keys --user-name Testingliujiaor
+            aws ses send-email \
+              --from "liujiaor@amazon.com" \
+              --to "liujiaor@amazon.com" \
+              --message "A random message"
       - name: send email when merge fail
         if: success()
         uses: dsfx3d/action-aws-ses@v1
