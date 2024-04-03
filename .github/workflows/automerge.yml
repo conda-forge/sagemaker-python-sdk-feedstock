@@ -1,8 +1,5 @@
 on:
   workflow_dispatch
-env:
-  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
 jobs:
   automerge-action:
     runs-on: ubuntu-latest
@@ -23,8 +20,8 @@ jobs:
       - name: get caller identity  
         run: |
             aws sts get-caller-identity
-            echo $AWS_ACCESS_KEY_ID
-            echo $AWS_SECRET_ACCESS_KEY
+            aws configure get default.aws_access_key_id
+            aws configure get default.aws_secret_access_key
             echo $AWS_DEFAULT_REGION
             aws sesv2 get-account
       - name: send email when merge fail
