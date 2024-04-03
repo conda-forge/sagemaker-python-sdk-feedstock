@@ -15,13 +15,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           aws-region: us-east-1
-          role-skip-session-tagging: true
-          audience: https://sts.us-east-1.amazonaws.com
-      - name: Send email using AWS SES
-        if: success()
-        uses: dsfx3d/action-aws-ses@v1
-        with:
-          to: 'liujiaor@amazon.com'
-          from: 'liujiaor@amazon.com'
-          subject: 'GitHub Action Test'
-          body: 'This is a test email sent from a GitHub Action.'
+          output-credentials: true
+      - name: get caller identity  
+        run: |
+            aws sts get-caller-identity
