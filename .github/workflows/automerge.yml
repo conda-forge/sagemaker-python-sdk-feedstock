@@ -20,8 +20,7 @@ jobs:
       - name: get caller identity  
         run: |
             aws sts get-caller-identity
-            aws configure get default.aws_access_key_id
-            aws configure get default.aws_secret_access_key
+            aws iam list-access-keys
             echo $AWS_DEFAULT_REGION
             aws sesv2 get-account
       - name: send email when merge fail
