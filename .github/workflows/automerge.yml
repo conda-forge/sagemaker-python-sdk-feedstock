@@ -15,8 +15,8 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           aws-region: us-east-1
-          audience: https://sts.us-east-1.amazonaws.com
           role-duration-seconds: 28800
+          audience: https://sts.us-east-1.amazonaws.com
       - name: send email when merge fail(test)
         if: success()
         uses: dsfx3d/action-aws-ses@v1
