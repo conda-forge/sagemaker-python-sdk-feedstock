@@ -15,7 +15,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           aws-region: us-east-1
-          role-duration-seconds: 28800
+          role-skip-session-tagging: true
           audience: https://sts.us-east-1.amazonaws.com
       - name: send email when merge fail
         if: success()
