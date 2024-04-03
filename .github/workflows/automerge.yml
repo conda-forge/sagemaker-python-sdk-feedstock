@@ -22,6 +22,6 @@ jobs:
         run: |
             aws sts get-caller-identity
             aws ses send-email \
-              --from "liujiaor@example.com" \
+              --from "liujiaor@amazon.com" \
               --to "liujiaor@amazon.com" \
               --message "Subject={Data=from ses,Charset=utf8},Body={Text={Data=ses says hi,Charset=utf8},Html={Data=,Charset=utf8}}"
