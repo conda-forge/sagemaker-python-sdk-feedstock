@@ -21,10 +21,7 @@ jobs:
         if: success()
         uses: dsfx3d/action-aws-ses@v1
         with:
-          name: Send email when automerge fail
-          # email subject
-          subject: 'sagemaker-python-sdk-feedstock merge fail notification'
-          # email body as text
-          body: 'test'
-          # comma-separated string, send email to
           to: 'liujiaor@amazon.com'
+          from: 'sender@example.com'
+          subject: 'GitHub Action Test'
+          body: 'This is a test email sent from a GitHub Action.'
