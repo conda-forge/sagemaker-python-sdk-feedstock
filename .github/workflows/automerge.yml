@@ -14,9 +14,9 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::312598714048:role/my-github-actions-role
+          role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           output-credentials: true
-          ACTIONS_RUNNER_DEBUG: true
+          audience: https://sts.us-east-1.amazonaws.com
       - name: get caller identity  
         run: |
             aws sts get-caller-identity
