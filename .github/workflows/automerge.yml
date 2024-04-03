@@ -2,6 +2,7 @@ on:
   workflow_dispatch
 permissions:
   id-token: write
+  contents: read
 jobs:
   automerge-action:
     runs-on: ubuntu-latest
@@ -16,4 +17,13 @@ jobs:
           role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           aws-region: us-east-1
           role-duration-seconds: 28800
-      
+      - name: send email when merge fail(test)
+        if: success()
+        uses: dsfx3d/action-aws-ses@v1
+        with:
+          # email subject
+          subject: 'sagemaker-python-sdk-feedstock merge fail notification'
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: 'liujiaor@amazon.com'
