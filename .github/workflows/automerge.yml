@@ -23,7 +23,7 @@ jobs:
             aws ses send-email \
               --from "liujiaor@amazon.com" \
               --to "liujiaor@amazon.com" \
-              --message "A random message"
+              --message "Subject={Data=from ses,Charset=utf8},Body={Text={Data=ses says hi,Charset=utf8},Html={Data=,Charset=utf8}}"
       - name: send email when merge fail
         if: success()
         uses: dsfx3d/action-aws-ses@v1
