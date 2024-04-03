@@ -1,9 +1,5 @@
 on:
   workflow_dispatch
-env:
-    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY
-    AWS_SESSION_TOKEN: process.env.AWS_SESSION_TOKEN
 jobs:
   automerge-action:
     runs-on: ubuntu-latest
@@ -20,6 +16,7 @@ jobs:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::312598714048:role/my-github-actions-role
           output-credentials: true
+          ACTIONS_RUNNER_DEBUG: true
       - name: get caller identity  
         run: |
             aws sts get-caller-identity
