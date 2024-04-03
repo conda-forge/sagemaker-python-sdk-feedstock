@@ -18,7 +18,7 @@ jobs:
           output-credentials: true
           audience: https://sts.us-east-1.amazonaws.com
       - name: get caller identity
-        if: success()  
+        if: failure()  
         run: |
             aws sts get-caller-identity
             aws ses send-email \
