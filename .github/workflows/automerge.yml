@@ -17,22 +17,11 @@ jobs:
           role-to-assume: arn:aws:iam::312598714048:role/ses-github-actions-role
           output-credentials: true
           audience: https://sts.us-east-1.amazonaws.com
-      - name: get caller identity  
+      - name: get caller identity
+        if: success()  
         run: |
             aws sts get-caller-identity
             aws ses send-email \
-              --from "liujiaor@amazon.com" \
+              --from "liujiaor@example.com" \
               --to "liujiaor@amazon.com" \
               --message "Subject={Data=from ses,Charset=utf8},Body={Text={Data=ses says hi,Charset=utf8},Html={Data=,Charset=utf8}}"
-      - name: send email when merge fail
-        if: success()
-        uses: dsfx3d/action-aws-ses@v1
-        with:
-          # email subject
-          subject: 'sagemaker-python-sdk-feedstock merge fail notification'
-          # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          # comma-separated string, send email to
-          to: 'liujiaor@amazon.com'
-          # from email name
-          from: 'notifications@github.com'
