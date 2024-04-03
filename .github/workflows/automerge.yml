@@ -26,6 +26,7 @@ jobs:
             echo $AWS_ACCESS_KEY_ID
             echo $AWS_SECRET_ACCESS_KEY
             echo $AWS_DEFAULT_REGION
+            aws sesv2 get-account
       - name: send email when merge fail
         if: success()
         uses: dsfx3d/action-aws-ses@v1
