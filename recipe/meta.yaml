@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.227.0" %}
+{% set version = "2.228.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 733a9537899c74656f57790479be36d9f76ff9dd58b47f845a922d0d8aaa5c83
+  sha256: 67632d5376abfa0e324bd1c7039b744a93e44af96dbbac507a3a94c734eff671
 
 build:
   entry_points:
@@ -20,6 +20,8 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools
+    - hatchling
   run:
     - python >=3.8
     - attrs >=23.1.0,<24
