@@ -21,6 +21,7 @@ requirements:
     - python >=3.8
     - pip
     - setuptools
+    - hatchling
   run:
     - python >=3.8
     - attrs >=23.1.0,<24
