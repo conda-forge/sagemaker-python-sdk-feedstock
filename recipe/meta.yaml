@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
   sha256: 67632d5376abfa0e324bd1c7039b744a93e44af96dbbac507a3a94c734eff671
 
 build:
@@ -14,16 +14,16 @@ build:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
     - hatchling
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - attrs >=23.1.0,<24
     - boto3 >=1.26.131,<2.0
     - cloudpickle ==2.2.1
@@ -76,6 +76,7 @@ test:
     - sagemaker-upgrade-v2 --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
