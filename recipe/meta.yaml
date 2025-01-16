@@ -1,13 +1,13 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.214.1" %}
+{% set version = "2.237.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 3de94ad6d8c6a4f319415328270efeed855d95914a44b9d68e5346ec887270b2
+  url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
+  sha256: 3193e4fe89087959aca9b037a3659dce437a5f27f3bf750faba20b21f05e6e66
 
 build:
   entry_points:
@@ -18,27 +18,34 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
+    - setuptools
+    - hatchling
   run:
-    - python >=3.8
+    - python >={{ python_min }}
+    - sagemaker-core >=1.0.17,<2.0.0
     - attrs >=23.1.0,<24
-    - boto3 >=1.26.131,<2.0
-    - cloudpickle ==2.2.1
+    - boto3 >=1.35.75,<2.0
+    - cloudpickle >=2.2.1
     - google-pasta
     - numpy >=1.9.0,<2.0
-    - protobuf >=3.12,<5.0
+    - protobuf >=3.12,<6.0
+    - omegaconf >=2.2,<2.3
     - smdebug-rulesconfig ==1.0.1
     - importlib-metadata >=1.4.0,<7.0
     - packaging >=20.0
     - pandas
+    - smdebug-rulesconfig ==1.0.1
+    - fastapi
     - pathos
     - schema
     - pyyaml ~=6.0
     - jsonschema
     - platformdirs
-    - tblib >=1.7.0,<3
-    - urllib3 <1.27
+    - tblib >=1.7.0,<4
+    - urllib3 >=1.26.8,<3.0.0
+    - uvicorn
     - requests
     - docker-py
     - tqdm
@@ -74,6 +81,7 @@ test:
     - sagemaker-upgrade-v2 --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
