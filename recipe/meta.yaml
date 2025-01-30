@@ -14,7 +14,7 @@ build:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -31,7 +31,7 @@ requirements:
     - google-pasta
     - numpy >=1.9.0,<2.0
     - protobuf >=3.12,<6.0
-    - omegaconf >=2.2,<2.3
+    - omegaconf >=2.2,<2.4
     - smdebug-rulesconfig ==1.0.1
     - importlib-metadata >=1.4.0,<7.0
     - packaging >=20.0
