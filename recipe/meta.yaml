@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.243.2" %}
+{% set version = "2.244.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 343e13bbcdcbb4c0ccf0c47ef7c349b14935d20167692041f03ca24afd2d11ac
+  sha256: e3e0b354201ecdb14261d97523fe0ecba6c8bfb8ab79c78912dc1ec0d1dcf742
 
 build:
   entry_points:
@@ -34,7 +34,7 @@ requirements:
     - omegaconf >=2.2,<2.4
     - smdebug-rulesconfig ==1.0.1
     - importlib-metadata >=1.4.0,<7.0
-    - packaging >=20.0
+    - packaging >=23.0,<25.0
     - pandas
     - smdebug-rulesconfig ==1.0.1
     - fastapi
