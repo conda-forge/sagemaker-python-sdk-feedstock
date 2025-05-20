@@ -50,6 +50,7 @@ requirements:
     - docker-py
     - tqdm
     - psutil
+    - graphene >=3,<4
 
 test:
   imports:
