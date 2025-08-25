@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.245.0" %}
+{% set version = "2.251.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 21af0a8b0baf6dc6e96daa2e539b3fd41d4a4244d69881bce1a343a8fcb7b51a
+  sha256: 86573b6db1e39fe7f1ff71749ddf3e231778b387944621c74b8ddc746f27b326
 
 build:
   entry_points:
@@ -25,13 +25,13 @@ requirements:
   run:
     - python >={{ python_min }}
     - sagemaker-core >=1.0.17,<2.0.0
-    - attrs >=23.1.0,<24
-    - boto3 >=1.35.75,<2.0
+    - attrs >=24,<26
+    - boto3 >=1.39.5,<2.0
     - cloudpickle >=2.2.1
     - google-pasta
     - numpy >=1.9.0,<2.0
     - protobuf >=3.12,<6.0
-    - omegaconf >=2.2,<2.4
+    - omegaconf >=2.2,<3
     - smdebug-rulesconfig ==1.0.1
     - importlib-metadata >=1.4.0,<7.0
     - packaging >=23.0,<25.0
