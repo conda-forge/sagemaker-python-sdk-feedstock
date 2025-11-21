@@ -146,14 +146,6 @@ In order to produce a uniquely identifiable distribution:
 
 Feedstock Maintainers
 =====================
-
-* [@benhuff](https://github.com/benhuff/)
 * [@claytonparnell](https://github.com/claytonparnell/)
-* [@jgoyani1](https://github.com/jgoyani1/)
-* [@knikure](https://github.com/knikure/)
-* [@liujiaor](https://github.com/liujiaor/)
 * [@mufaddal-rohawala](https://github.com/mufaddal-rohawala/)
-* [@mxr-conda](https://github.com/mxr-conda/)
-* [@oblute](https://github.com/oblute/)
-* [@rluria14](https://github.com/rluria14/)
-
+* [@zhaoqizqwang](https://github.com/zhaoqizqwang/)

@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.254.1" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,21 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 68074e291540a01f92022d82a3e31b3f49a150634c2cef102000cefcf6f0f184
+  sha256: b06c5e8de8db1c8e0e294a4700244b6c0ea95196b81be52e53dd044c7be1ecd2
 
 build:
+  {% if version.startswith('3.') %}
+  script: |
+    {{ PYTHON }} -m pip install "sagemaker-core>=2.0,<3.0"
+    {{ PYTHON }} -m pip install "sagemaker-train<2.0"
+    {{ PYTHON }} -m pip install "sagemaker-serve<2.0"
+    {{ PYTHON }} -m pip install "sagemaker-mlops<2.0"
+  {% else %}
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  {% endif %}
+  noarch: python
   number: 0
 
 requirements:
@@ -24,6 +32,7 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
+    {% if not version.startswith('3.') %}
     - sagemaker-core >=1.0.17,<2.0.0
     - attrs >=24,<26
     - boto3 >=1.39.5,<2.0
@@ -36,7 +45,6 @@ requirements:
     - importlib-metadata >=1.4.0,<7.0
     - packaging >=23.0,<25.0
     - pandas
-    - smdebug-rulesconfig ==1.0.1
     - fastapi
     - pathos
     - schema
@@ -51,9 +59,16 @@ requirements:
     - tqdm
     - psutil
     - graphene >=3,<4
+    {% endif %}
 
 test:
   imports:
+    {% if version.startswith('3.') %}
+    - sagemaker.core
+    - sagemaker.train
+    - sagemaker.serve
+    - sagemaker.mlops
+    {% else %}
     - sagemaker
     - sagemaker.amazon
     - sagemaker.apiutils
@@ -77,30 +92,26 @@ test:
     - sagemaker.tensorflow
     - sagemaker.workflow
     - sagemaker.xgboost
+    {% endif %}
   commands:
     - pip check
+    {% if not version.startswith('3.') %}
     - sagemaker-upgrade-v2 --help
+    {% endif %}
   requires:
     - pip
-    - python {{ python_min }}
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
   license: Apache-2.0
   license_family: APACHE
-  license_file: LICENSE.txt
+  license_file: LICENSE
   summary: Open source library for training and deploying models on Amazon SageMaker.
   doc_url: https://sagemaker.readthedocs.io/en/stable/
   dev_url: https://github.com/aws/sagemaker-python-sdk/
 
 extra:
   recipe-maintainers:
-    - liujiaor
-    - knikure
-    - jgoyani1
     - mufaddal-rohawala
     - claytonparnell
-    - mxr-conda
-    - rluria14
-    - benhuff
-    - oblute
+    - zhaoqizqwang
