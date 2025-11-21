@@ -12,10 +12,10 @@ source:
 build:
   {% if version.startswith('3.') %}
   script: |
-    {{ PYTHON }} -m pip install "sagemaker-core>=2.0.0,<3.0.0"
-    {{ PYTHON }} -m pip install "sagemaker-train<2.0.0"
-    {{ PYTHON }} -m pip install "sagemaker-serve<2.0.0"
-    {{ PYTHON }} -m pip install "sagemaker-mlops<2.0.0"
+    {{ PYTHON }} -m pip install "sagemaker-core>=2.0,<3.0"
+    {{ PYTHON }} -m pip install "sagemaker-train<2.0"
+    {{ PYTHON }} -m pip install "sagemaker-serve<2.0"
+    {{ PYTHON }} -m pip install "sagemaker-mlops<2.0"
   {% else %}
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
@@ -33,14 +33,32 @@ requirements:
   run:
     - python >={{ python_min }}
     {% if not version.startswith('3.') %}
-    # v2.x.x dependencies - add actual v2 requirements here
-    - boto3 >=1.26.137
-    - numpy >=1.9.0
-    - protobuf >=3.1
+    - sagemaker-core >=1.0.17,<2.0.0
+    - attrs >=24,<26
+    - boto3 >=1.39.5,<2.0
+    - cloudpickle >=2.2.1
+    - google-pasta
+    - numpy >=1.9.0,<2.0
+    - protobuf >=3.12,<6.0
+    - omegaconf >=2.2,<3
     - smdebug-rulesconfig ==1.0.1
-    - importlib-metadata >=1.4.0
-    - packaging >=20.0
+    - importlib-metadata >=1.4.0,<7.0
+    - packaging >=23.0,<25.0
     - pandas
+    - fastapi
+    - pathos
+    - schema
+    - pyyaml ~=6.0
+    - jsonschema
+    - platformdirs
+    - tblib >=1.7.0,<4
+    - urllib3 >=1.26.8,<3.0.0
+    - uvicorn
+    - requests
+    - docker-py
+    - tqdm
+    - psutil
+    - graphene >=3,<4
     {% endif %}
 
 test:
