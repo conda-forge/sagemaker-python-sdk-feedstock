@@ -10,10 +10,7 @@ source:
   sha256: b06c5e8de8db1c8e0e294a4700244b6c0ea95196b81be52e53dd044c7be1ecd2
 
 build:
-  entry_points:
-    - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
@@ -24,65 +21,21 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - sagemaker-core >=1.0.17,<2.0.0
-    - attrs >=24,<26
-    - boto3 >=1.39.5,<2.0
-    - cloudpickle >=2.2.1
-    - google-pasta
-    - numpy >=1.9.0,<2.0
-    - protobuf >=3.12,<6.0
-    - omegaconf >=2.2,<3
-    - smdebug-rulesconfig ==1.0.1
-    - importlib-metadata >=1.4.0,<7.0
-    - packaging >=23.0,<25.0
-    - pandas
-    - smdebug-rulesconfig ==1.0.1
-    - fastapi
-    - pathos
-    - schema
-    - pyyaml ~=6.0
-    - jsonschema
-    - platformdirs
-    - tblib >=1.7.0,<4
-    - urllib3 >=1.26.8,<3.0.0
-    - uvicorn
-    - requests
-    - docker-py
-    - tqdm
-    - psutil
-    - graphene >=3,<4
+    - sagemaker-core >=2.0.0,<3.0.0
+    - sagemaker-train <2.0.0
+    - sagemaker-serve <2.0.0
+    - sagemaker-mlops <2.0.0
 
 test:
   imports:
-    - sagemaker
-    - sagemaker.amazon
-    - sagemaker.apiutils
-    - sagemaker.automl
-    - sagemaker.chainer
-    - sagemaker.cli
-    - sagemaker.cli.compatibility
-    - sagemaker.cli.compatibility.v2
-    - sagemaker.cli.compatibility.v2.modifiers
-    - sagemaker.debugger
-    - sagemaker.feature_store
-    - sagemaker.lineage
-    - sagemaker.local
-    - sagemaker.model_monitor
-    - sagemaker.mxnet
-    - sagemaker.pytorch
-    - sagemaker.rl
-    - sagemaker.sklearn
-    - sagemaker.spark
-    - sagemaker.sparkml
-    - sagemaker.tensorflow
-    - sagemaker.workflow
-    - sagemaker.xgboost
+    - sagemaker.core
+    - sagemaker.train
+    - sagemaker.serve
+    - sagemaker.mlops
   commands:
     - pip check
-    - sagemaker-upgrade-v2 --help
   requires:
     - pip
-    - python {{ python_min }}
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
