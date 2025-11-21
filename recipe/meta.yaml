@@ -12,10 +12,10 @@ source:
 build:
   {% if version.startswith('3.') %}
   script: |
-    {{ PYTHON }} -m pip install sagemaker-core>=2.0.0,<3.0.0
-    {{ PYTHON }} -m pip install sagemaker-train<2.0.0
-    {{ PYTHON }} -m pip install sagemaker-serve<2.0.0
-    {{ PYTHON }} -m pip install sagemaker-mlops<2.0.0
+    {{ PYTHON }} -m pip install "sagemaker-core>=2.0.0,<3.0.0"
+    {{ PYTHON }} -m pip install "sagemaker-train<2.0.0"
+    {{ PYTHON }} -m pip install "sagemaker-serve<2.0.0"
+    {{ PYTHON }} -m pip install "sagemaker-mlops<2.0.0"
   {% else %}
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
@@ -94,12 +94,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - liujiaor
-    - knikure
-    - jgoyani1
     - mufaddal-rohawala
     - claytonparnell
-    - mxr-conda
-    - rluria14
-    - benhuff
-    - oblute
+    - zhaoqizqwang
