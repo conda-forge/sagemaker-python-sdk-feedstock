@@ -10,6 +10,11 @@ source:
   sha256: b06c5e8de8db1c8e0e294a4700244b6c0ea95196b81be52e53dd044c7be1ecd2
 
 build:
+  {% if not version.startswith('3.') %}
+  entry_points:
+    - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
+  script: {{ PYTHON }} -m pip install . -vv
+  {% endif %}
   noarch: python
   number: 0
 
@@ -71,6 +76,9 @@ test:
     {% endif %}
   commands:
     - pip check
+    {% if not version.startswith('3.') %}
+    - sagemaker-upgrade-v2 --help
+    {% endif %}
   requires:
     - pip
 
