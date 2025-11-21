@@ -10,7 +10,13 @@ source:
   sha256: b06c5e8de8db1c8e0e294a4700244b6c0ea95196b81be52e53dd044c7be1ecd2
 
 build:
-  {% if not version.startswith('3.') %}
+  {% if version.startswith('3.') %}
+  script: |
+    {{ PYTHON }} -m pip install sagemaker-core>=2.0.0,<3.0.0
+    {{ PYTHON }} -m pip install sagemaker-train<2.0.0
+    {{ PYTHON }} -m pip install sagemaker-serve<2.0.0
+    {{ PYTHON }} -m pip install sagemaker-mlops<2.0.0
+  {% else %}
   entry_points:
     - sagemaker-upgrade-v2=sagemaker.cli.compatibility.v2.sagemaker_upgrade_v2:main
   script: {{ PYTHON }} -m pip install . -vv
@@ -26,12 +32,7 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    {% if version.startswith('3.') %}
-    - sagemaker-core >=2.0.0,<3.0.0
-    - sagemaker-train <2.0.0
-    - sagemaker-serve <2.0.0
-    - sagemaker-mlops <2.0.0
-    {% else %}
+    {% if not version.startswith('3.') %}
     # v2.x.x dependencies - add actual v2 requirements here
     - boto3 >=1.26.137
     - numpy >=1.9.0
