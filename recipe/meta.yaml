@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "2.254.1" %}
+{% set version = "3.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 68074e291540a01f92022d82a3e31b3f49a150634c2cef102000cefcf6f0f184
+  sha256: 34157d1f62b61f99d249f29abb280242a07bd2b4929d5a62031caae7ff04060f
 
 build:
   entry_points:
@@ -23,8 +23,11 @@ requirements:
     - setuptools
     - hatchling
   run:
+    - sagemaker-mlops >=1.1.1,<2.0.0
+    - sagemaker-serve >=1.1.1,<2.0.0
+    - sagemaker-train >=1.1.1,<2.0.0
     - python >={{ python_min }}
-    - sagemaker-core >=1.0.17,<2.0.0
+    - sagemaker-core >=2.1.1,<3.0.0
     - attrs >=24,<26
     - boto3 >=1.39.5,<2.0
     - cloudpickle >=2.2.1
