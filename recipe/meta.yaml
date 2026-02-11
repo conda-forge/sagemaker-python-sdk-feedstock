@@ -24,7 +24,7 @@ requirements:
     - hatchling
   run:
     - python >={{ python_min }}
-    - sagemaker-core <2.0.0,>=1.0.71
+    - sagemaker-core >=1.0.71,<2.0.0
     - attrs >=24,<26
     - boto3 >=1.39.5,<2.0
     - cloudpickle >=2.2.1
