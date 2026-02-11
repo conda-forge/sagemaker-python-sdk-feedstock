@@ -158,6 +158,5 @@ Feedstock Maintainers
 * [@claytonparnell](https://github.com/claytonparnell/)
 * [@mollyheamazon](https://github.com/mollyheamazon/)
 * [@mufaddal-rohawala](https://github.com/mufaddal-rohawala/)
-* [@zhaoqizqwang](https://github.com/zhaoqizqwang/)
 * [@nargokul](https://github.com/nargokul)
 
