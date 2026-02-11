@@ -13,6 +13,14 @@ Development: https://github.com/aws/sagemaker-python-sdk/
 
 Documentation: https://sagemaker.readthedocs.io/en/stable/
 
+**Note:** Starting with version 3.x, `sagemaker` is a meta-package that installs the following sub-packages:
+- `sagemaker-core` - Core SageMaker functionality
+- `sagemaker-train` - Training capabilities
+- `sagemaker-serve` - Model serving and inference
+- `sagemaker-mlops` - MLOps and workflow management
+
+The sub-packages are currently installed from PyPI. For pure conda installations of sub-packages, separate feedstocks would be needed.
+
 Current build status
 ====================
 
@@ -147,13 +155,9 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@benhuff](https://github.com/benhuff/)
 * [@claytonparnell](https://github.com/claytonparnell/)
-* [@jgoyani1](https://github.com/jgoyani1/)
-* [@knikure](https://github.com/knikure/)
-* [@liujiaor](https://github.com/liujiaor/)
+* [@mollyheamazon](https://github.com/mollyheamazon/)
 * [@mufaddal-rohawala](https://github.com/mufaddal-rohawala/)
-* [@mxr-conda](https://github.com/mxr-conda/)
-* [@oblute](https://github.com/oblute/)
-* [@rluria14](https://github.com/rluria14/)
+* [@zhaoqizqwang](https://github.com/zhaoqizqwang/)
+* [@nargokul](https://github.com/nargokul)
 
