@@ -1,6 +1,8 @@
 bot:
   automerge: true
   inspection: update-grayskull
+  abi_migration_branches:
+    - "v2.x"
 build_platform:
   osx_arm64: osx_64
 conda_forge_output_validation: true
