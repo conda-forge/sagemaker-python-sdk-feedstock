@@ -1,5 +1,5 @@
 {% set name = "sagemaker" %}
-{% set version = "3.4.1" %}
+{% set version = "3.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 22500e134eff6a19e782e9202d70cf3275ec87924b425b88e1e3ab1af04a8ff1
+  sha256: da63b8e16e58362dbacdec9c843d5838b9a9af83ac21be1d26cd7f24ddf81873
 
 build:
   noarch: python
@@ -16,10 +16,10 @@ build:
 requirements:
   run:
     - python >=3.9
-    - sagemaker-core >=2.4.1
-    - sagemaker-train >=1.4.1
-    - sagemaker-serve >=1.4.1
-    - sagemaker-mlops >=1.4.1
+    - sagemaker-core >=2.5.0
+    - sagemaker-train >=1.5.0
+    - sagemaker-serve >=1.5.0
+    - sagemaker-mlops >=1.5.0
 
 test:
   imports:
