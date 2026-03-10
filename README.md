@@ -1,5 +1,5 @@
-About sagemaker-feedstock
-=========================
+About sagemaker-python-sdk-feedstock
+====================================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sagemaker-python-sdk-feedstock/blob/main/LICENSE.txt)
 
@@ -31,53 +31,53 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-sagemaker-green.svg)](https://anaconda.org/conda-forge/sagemaker) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sagemaker.svg)](https://anaconda.org/conda-forge/sagemaker) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sagemaker.svg)](https://anaconda.org/conda-forge/sagemaker) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sagemaker.svg)](https://anaconda.org/conda-forge/sagemaker) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-sagemaker--python--sdk-green.svg)](https://anaconda.org/conda-forge/sagemaker-python-sdk) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sagemaker-python-sdk.svg)](https://anaconda.org/conda-forge/sagemaker-python-sdk) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sagemaker-python-sdk.svg)](https://anaconda.org/conda-forge/sagemaker-python-sdk) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sagemaker-python-sdk.svg)](https://anaconda.org/conda-forge/sagemaker-python-sdk) |
 
-Installing sagemaker
-====================
+Installing sagemaker-python-sdk
+===============================
 
-Installing `sagemaker` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `sagemaker-python-sdk` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `sagemaker` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `sagemaker-python-sdk` can be installed with `conda`:
 
 ```
-conda install sagemaker
-```
-
-or with `mamba`:
-
-```
-mamba install sagemaker
-```
-
-It is possible to list all of the versions of `sagemaker` available on your platform with `conda`:
-
-```
-conda search sagemaker --channel conda-forge
+conda install sagemaker-python-sdk
 ```
 
 or with `mamba`:
 
 ```
-mamba search sagemaker --channel conda-forge
+mamba install sagemaker-python-sdk
+```
+
+It is possible to list all of the versions of `sagemaker-python-sdk` available on your platform with `conda`:
+
+```
+conda search sagemaker-python-sdk --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search sagemaker-python-sdk --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search sagemaker --channel conda-forge
+mamba repoquery search sagemaker-python-sdk --channel conda-forge
 
-# List packages depending on `sagemaker`:
-mamba repoquery whoneeds sagemaker --channel conda-forge
+# List packages depending on `sagemaker-python-sdk`:
+mamba repoquery whoneeds sagemaker-python-sdk --channel conda-forge
 
-# List dependencies of `sagemaker`:
-mamba repoquery depends sagemaker --channel conda-forge
+# List dependencies of `sagemaker-python-sdk`:
+mamba repoquery depends sagemaker-python-sdk --channel conda-forge
 ```
 
 
@@ -122,17 +122,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating sagemaker-feedstock
-============================
+Updating sagemaker-python-sdk-feedstock
+=======================================
 
-If you would like to improve the sagemaker recipe or build a new
+If you would like to improve the sagemaker-python-sdk recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/sagemaker-feedstock are
+Note that all branches in the conda-forge/sagemaker-python-sdk-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
