@@ -1,4 +1,4 @@
-{% set name = "sagemaker" %}
+{% set name = "sagemaker-python-sdk" %}
 {% set version = "3.5.0" %}
 
 package:
