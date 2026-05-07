@@ -24,10 +24,10 @@ requirements:
 test:
   imports:
     - sagemaker
-  commands:
-    - pip check
-  requires:
-    - pip
+    - sagemaker.core
+    - sagemaker.train
+    - sagemaker.serve
+    - sagemaker.mlops
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
