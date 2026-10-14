@@ -1,13 +1,13 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "3.12.0" %}
+{% set version = "3.25.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: 0ef78944392d7aa7c1a339372f57e18bb50a873b57c619c11e35d67d198de65f
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
+  sha256: fa34b6dfbb5f990926e5a70ce958990d7995a171875713dbb986920ed9a277c7
 
 build:
   noarch: python
@@ -16,18 +16,18 @@ build:
 requirements:
   run:
     - python >=3.9
-    - sagemaker-core >=2.12.0,<3.0.0
-    - sagemaker-train >=1.12.0,<2.0.0
-    - sagemaker-serve >=1.12.0,<2.0.0
-    - sagemaker-mlops >=1.12.0,<2.0.0
+    - sagemaker-core >=2.25.0,<3.0.0
+    - sagemaker-train >=1.25.0,<2.0.0
+    - sagemaker-serve >=1.25.0,<2.0.0
+    - sagemaker-mlops >=1.25.0,<2.0.0
 
 test:
-  imports:
-    - sagemaker
-    - sagemaker.core
-    - sagemaker.train
-    - sagemaker.serve
-    - sagemaker.mlops
+  commands:
+    - AWS_DEFAULT_REGION=us-east-1 python -c "import sagemaker"
+    - AWS_DEFAULT_REGION=us-east-1 python -c "import sagemaker.core"
+    - AWS_DEFAULT_REGION=us-east-1 python -c "import sagemaker.train"
+    - AWS_DEFAULT_REGION=us-east-1 python -c "import sagemaker.serve"
+    - AWS_DEFAULT_REGION=us-east-1 python -c "import sagemaker.mlops"
 
 about:
   home: https://github.com/aws/sagemaker-python-sdk/
@@ -44,4 +44,3 @@ extra:
     - mufaddal-rohawala
     - nargokul
     - aviruthen
-
