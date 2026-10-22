@@ -1,5 +1,5 @@
 {% set name = "sagemaker-python-sdk" %}
-{% set version = "3.26.0" %}
+{% set version = "3.27.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/sagemaker/sagemaker-{{ version }}.tar.gz
-  sha256: b159455811027ce6b1842876361ff57071e863063ece6a3d277e6c0f054bc173
+  sha256: f04b87b0543ae617af53dd76760491926b67cc0963082ccd9073e77ccbca4bf3
 
 build:
   noarch: python
@@ -16,10 +16,10 @@ build:
 requirements:
   run:
     - python >=3.9
-    - sagemaker-core >=2.26.0,<3.0.0
-    - sagemaker-train >=1.26.0,<2.0.0
-    - sagemaker-serve >=1.26.0,<2.0.0
-    - sagemaker-mlops >=1.26.0,<2.0.0
+    - sagemaker-core >=2.27.0,<3.0.0
+    - sagemaker-train >=1.27.0,<2.0.0
+    - sagemaker-serve >=1.27.0,<2.0.0
+    - sagemaker-mlops >=1.27.0,<2.0.0
 
 test:
   commands:
